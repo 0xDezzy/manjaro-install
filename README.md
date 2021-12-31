@@ -119,8 +119,8 @@ setup
 sudo zfs mount rpool_$UUID/ROOT/default
 sudo mount -t zfs bpool_$UUID/BOOT/default /mnt/boot
 sudo zfs mount -a
-sudo mount /mnt/boot/efis/nvme-WDC_PC_SN730_SDBQNTY-512G-1001_19385J470209-part1 /mnt/boot/efi
-sudo mount -t vfat /mnt/boot/efis/nvme-WDC_PC_SN730_SDBQNTY-512G-1001_19385J470209-part1 /mnt/boot/efis/nvme-WDC_PC_SN730_SDBQNTY-512G-1001_19385J470209
+sudo mount /dev/disk/by-id/nvme-WDC_PC_SN730_SDBQNTY-512G-1001_19385J470209-part1 /mnt/boot/efi
+sudo mount -t vfat /dev/disk/by-id/nvme-WDC_PC_SN730_SDBQNTY-512G-1001_19385J470209-part1 /mnt/boot/efis/nvme-WDC_PC_SN730_SDBQNTY-512G-1001_19385J470209
 
 sudo sed 's/GRUB_CMDLINE_LINUX=\"/GRUB_CMDLINE_LINUX=\"zfs_import_dir=\/dev\/disk\/by-id\ /' /mnt/etc/default/grub | sudo tee /mnt/etc/default/grub.new
 sudo rm /mnt/etc/default/grub
